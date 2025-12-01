@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Meme Generator</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <div class="container">
+        <header>
+            <h1>
+                <svg class="pacman-icon" width="50" height="50" viewBox="0 0 50 50" xmlns="http://www.w3.org/2000/svg">
+                    <!-- Pac-Man -->
+                    <g class="pacman">
+                        <circle cx="25" cy="25" r="20" fill="#FFD700"/>
+                        <path class="mouth" d="M 25 25 L 45 15 A 20 20 0 0 1 45 35 Z" fill="#1a1a1a"/>
+                    </g>
+                    <!-- Pixels/dots being eaten -->
+                    <circle class="pixel pixel1" cx="60" cy="25" r="3" fill="#ff69b4"/>
+                    <circle class="pixel pixel2" cx="75" cy="25" r="3" fill="#ff69b4"/>
+                    <circle class="pixel pixel3" cx="90" cy="25" r="3" fill="#ff69b4"/>
+                </svg>
+                Meme Generator
+            </h1>
+            <p>Create and download your own memes!</p>
+        </header>
+
+        <div class="main-content">
+            <div class="controls-panel">
+                <div class="control-group">
+                    <label for="template-select">Select Template:</label>
+                    <select id="template-select">
+                        <option value="">Choose a meme template...</option>
+                        <option value="drake">Drake Hotline Bling</option>
+                        <option value="distracted">Distracted Boyfriend</option>
+                        <option value="buttons">Two Buttons</option>
+                        <option value="simply">One Does Not Simply</option>
+                        <option value="success">Success Kid</option>
+                    </select>
+                </div>
+
+                <div class="control-group">
+                    <label>Mode:</label>
+                    <div class="mode-toggle">
+                        <button id="classic-mode-btn" class="mode-btn active">Classic Mode</button>
+                        <button id="free-mode-btn" class="mode-btn">Free Mode</button>
+                    </div>
+                </div>
+
+                <div id="classic-controls" class="mode-controls">
+                    <div class="control-group">
+                        <label for="top-text">Top Text:</label>
+                        <input type="text" id="top-text" placeholder="Enter top text...">
+                    </div>
+
+                    <div class="control-group">
+                        <label for="bottom-text">Bottom Text:</label>
+                        <input type="text" id="bottom-text" placeholder="Enter bottom text...">
+                    </div>
+                </div>
+
+                <div id="free-controls" class="mode-controls" style="display: none;">
+                    <div class="control-group">
+                        <label for="free-text">Text:</label>
+                        <input type="text" id="free-text" placeholder="Enter text...">
+                        <button id="add-text-btn" class="btn-secondary">Add Text</button>
+                    </div>
+                    <div id="text-list" class="text-list"></div>
+                </div>
+
+                <div class="control-group">
+                    <label for="font-size">Text Size: <span id="font-size-value">48</span>px</label>
+                    <input type="range" id="font-size" min="20" max="120" value="48">
+                </div>
+
+                <div class="control-group">
+                    <button id="download-btn" class="btn-primary">Download Meme</button>
+                </div>
+            </div>
+
+            <div class="canvas-container">
+                <canvas id="meme-canvas"></canvas>
+            </div>
+        </div>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>
