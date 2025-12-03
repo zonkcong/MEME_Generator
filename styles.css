@@ -6,9 +6,57 @@
 
 body {
     font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, sans-serif;
-    background: #1a1a1a;
+    background-color: #0a0a0a;
     min-height: 100vh;
     padding: 20px;
+    position: relative;
+    overflow-x: hidden;
+}
+
+/* Diagonal tiled meme background */
+body::before {
+    content: '';
+    position: fixed;
+    top: -50%;
+    left: -50%;
+    width: 200%;
+    height: 200%;
+    background-image: url('assets/meme-bg.jpg');
+    background-size: 600px auto;
+    background-repeat: repeat;
+    transform: rotate(-15deg);
+    opacity: 0.15;
+    z-index: -2;
+    animation: bg-drift 60s linear infinite;
+}
+
+/* Overlay for depth and surreal effect */
+body::after {
+    content: '';
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: 
+        radial-gradient(ellipse at 20% 80%, rgba(255, 105, 180, 0.1) 0%, transparent 50%),
+        radial-gradient(ellipse at 80% 20%, rgba(255, 20, 147, 0.08) 0%, transparent 50%),
+        linear-gradient(135deg, rgba(0, 0, 0, 0.7) 0%, rgba(20, 20, 20, 0.5) 50%, rgba(0, 0, 0, 0.7) 100%);
+    z-index: -1;
+    pointer-events: none;
+}
+
+/* Slow drifting animation for surreal effect */
+@keyframes bg-drift {
+    0% {
+        transform: rotate(-15deg) translate(0, 0);
+    }
+    50% {
+        transform: rotate(-15deg) translate(-50px, -50px);
+    }
+    100% {
+        transform: rotate(-15deg) translate(0, 0);
+    }
 }
 
 .container {
