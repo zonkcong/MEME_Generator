@@ -172,17 +172,17 @@ body::after {
 /* Joker floating animation */
 .joker-float {
     position: fixed;
-    bottom: -20px;
-    right: 20px;
-    width: 180px;
+    bottom: 20px;
+    right: 30px;
+    width: 120px;
     height: auto;
-    z-index: 100;
+    z-index: 9999;
     pointer-events: none;
     animation: 
         joker-hover 4s ease-in-out infinite,
         joker-sway 6s ease-in-out infinite,
         joker-appear 1s ease-out forwards;
-    filter: drop-shadow(0 10px 30px rgba(0, 0, 0, 0.5));
+    filter: drop-shadow(0 10px 30px rgba(0, 0, 0, 0.7));
     opacity: 0;
 }
 
